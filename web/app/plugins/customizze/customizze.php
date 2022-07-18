@@ -41,17 +41,25 @@ class CustomizzePlugin
 
     public function register()
     {
+        $this->load_dependencies();
+
         add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+    }
+
+    private function load_dependencies()
+    {
+        require_once plugin_dir_path(__FILE__) . '/inc/CustomizzePluginActivate.php';
+        require_once plugin_dir_path(__FILE__) . '/inc/CustomizzePluginDeactivate.php';
     }
 
     public function activate()
     {
-        flush_rewrite_rules();
+        CustomizzePluginActivate::activate();
     }
 
     public function deactivate()
     {
-        flush_rewrite_rules();
+        CustomizzePluginDeactivate::deactivate();
     }
 
     public function enqueue()
@@ -67,5 +75,4 @@ if (class_exists('CustomizzePlugin')) {
 }
 
 register_activation_hook(__FILE__, array($customizzePlugin, 'activate'));
-
 register_deactivation_hook(__FILE__, array($customizzePlugin, 'deactivate'));
