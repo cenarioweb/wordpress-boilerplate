@@ -26,6 +26,32 @@
  * Text Domain:       customizze
  */
 
- if (!defined('ABSPATH')) {
-    die("You can't access this file. Get out of here!");
- }
+defined('ABSPATH') or die("You can't access this file. Get out of here!");
+
+class CustomizzePlugin
+{
+    public function activate()
+    {
+        // generate a custom post type
+        // flush rewrite rules
+    }
+
+    public function deactivate()
+    {
+        // flush rewrite rules
+    }
+
+    public function uninstall()
+    {
+        // delete a custom post type
+        // delete all plugin data from database
+    }
+}
+
+if (class_exists('CustomizzePlugin')) {
+    $customizzePlugin = new CustomizzePlugin();
+}
+
+register_activation_hook(__FILE__, array($customizzePlugin, 'activate'));
+
+register_deactivation_hook(__FILE__, array($customizzePlugin, 'deactivate'));
