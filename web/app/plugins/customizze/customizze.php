@@ -28,23 +28,18 @@
 
 defined('ABSPATH') or die("You can't access this file. Get out of here!");
 
-/**
- * Currently plugin version.
- * Start at version 0.1.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
+require_once dirname(__FILE__) . '/vendor/autoload.php';
 
-define( 'CUSTOMIZZE_PLUGIN_BASENAME', plugin_basename(__FILE__) );
-define( 'CUSTOMIZZE_PLUGIN_NAME', 'customizze' );
-define( 'CUSTOMIZZE_PLUGIN_TITLE', 'Customizze' );
-define( 'CUSTOMIZZE_PLUGIN_VERSION', '0.1.0' );
+define( 'PLUGIN_PATH', plugin_dir_path(__FILE__) );
+define( 'PLUGIN_URL', plugin_dir_url(__FILE__) );
+define( 'PLUGIN_FILE', __FILE__);
+define( 'PLUGIN_BASENAME', plugin_basename(__FILE__) );
+define( 'PLUGIN_NAME', 'customizze' );
+define( 'PLUGIN_TITLE', 'Customizze' );
+define( 'PLUGIN_VERSION', '0.1.0' );
 
-require plugin_dir_path( __FILE__ ) . 'classes/CustomizzePlugin.php';
+\Cenarioweb\Customizze\Init::register_hooks();
+\Cenarioweb\Customizze\Init::register_services();
 
-if (class_exists('CustomizzePlugin')) {
-    $customizzePlugin = new CustomizzePlugin();
-    $customizzePlugin->register();
-
-    register_activation_hook(__FILE__, array($customizzePlugin, 'activate'));
-    register_deactivation_hook(__FILE__, array($customizzePlugin, 'deactivate'));
-}
+// register_activation_hook(__FILE__, array(\Cenarioweb\Customizze\Base\Activate::class, 'activate'));
+// register_deactivation_hook(__FILE__, array(\Cenarioweb\Customizze\Base\Deactivate::class, 'deactivate'));

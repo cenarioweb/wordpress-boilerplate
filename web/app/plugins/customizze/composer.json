@@ -1,0 +1,19 @@
+{
+    "name": "cenarioweb/customizze",
+    "description": "Customization options for a Wordpress website",
+    "type": "library",
+    "license": "GPLv2.0+",
+    "autoload": {
+        "psr-4": {
+            "Cenarioweb\\Customizze\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Carlos Eduardo",
+            "email": "carloseduardo@cenarioweb.com.br"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
