@@ -30,14 +30,22 @@ class CustomizzePlugin
     public function register()
     {
         $this->load_dependencies();
+        $this->register_settings_page();
 
         add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+    }
+
+    public function register_settings_page()
+    {
+        $settings_page = new CustomizzePluginSettingsPage();
+        $settings_page->register();
     }
 
     private function load_dependencies()
     {
         require_once plugin_dir_path(__FILE__) . 'CustomizzePluginActivate.php';
         require_once plugin_dir_path(__FILE__) . 'CustomizzePluginDeactivate.php';
+        require_once plugin_dir_path(__FILE__) . 'CustomizzePluginSettingsPage.php';
     }
 
     public function activate()

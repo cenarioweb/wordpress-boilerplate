@@ -33,6 +33,10 @@ defined('ABSPATH') or die("You can't access this file. Get out of here!");
  * Start at version 0.1.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
+
+define( 'CUSTOMIZZE_PLUGIN_BASENAME', plugin_basename(__FILE__) );
+define( 'CUSTOMIZZE_PLUGIN_NAME', 'customizze' );
+define( 'CUSTOMIZZE_PLUGIN_TITLE', 'Customizze' );
 define( 'CUSTOMIZZE_PLUGIN_VERSION', '0.1.0' );
 
 require plugin_dir_path( __FILE__ ) . 'classes/CustomizzePlugin.php';
