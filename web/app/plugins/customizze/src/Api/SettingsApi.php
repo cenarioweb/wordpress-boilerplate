@@ -24,6 +24,12 @@ class SettingsApi
     {
         foreach ($this->admin_pages as $page) {
             add_menu_page($page['page_title'], $page['menu_title'], $page['capability'], $page['menu_slug'], $page['callback'], $page['icon_url'], $page['position']);
+
+            if (isset($page['subpages']) && (gettype($page['subpages']) == 'array')) {
+                foreach ($page['subpages'] as $subpage) {
+                    add_submenu_page($page['menu_slug'], $subpage['page_title'], $subpage['menu_title'], $page['capability'], $subpage['menu_slug'], $subpage['callback']);
+                }
+            }
         }
     }
 }

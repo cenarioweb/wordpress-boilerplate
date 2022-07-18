@@ -34,17 +34,22 @@ class Admin
                 'menu_slug' => 'customizze',
                 'callback' => function () { echo '<h1>Customizze</h1>'; },
                 'icon_url' => 'dashicons-coffee',
-                'position' => 110
+                'position' => 110,
+                'subpages' => [
+                    [
+                        'page_title' => 'Personalizar tela de login',
+                        'menu_title' => 'Tela de login',
+                        'menu_slug' => 'customizze-login-screen',
+                        'callback' => function () { echo '<h1>Personalizar tela de login</h1>'; }
+                    ],
+                    [
+                        'page_title' => 'Tipos de posts (Custom Post Types)',
+                        'menu_title' => 'Tipos de posts',
+                        'menu_slug' => 'customizze-custom-post-types',
+                        'callback' => function () { echo '<h1>Tipos de posts (Custom Post Types)</h1>'; }
+                    ]
+                ]
             ],
-            [
-                'page_title' => 'Alfred - Configurações',
-                'menu_title' => 'Alfred',
-                'capability' => 'manage_options',
-                'menu_slug' => 'alfred',
-                'callback' => function () { echo '<h1>Alfred</h1>'; },
-                'icon_url' => 'dashicons-admin-settings',
-                'position' => 111
-            ]
         ];
     }
 }
