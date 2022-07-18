@@ -1,0 +1,90 @@
+# Translation of Plugins - WordPress Auto-updates - Stable (latest release) in Portuguese (Brazil)
+# This file is distributed under the same license as the Plugins - WordPress Auto-updates - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2020-03-17 09:41:28+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
+"Language: pt_BR\n"
+"Project-Id-Version: Plugins - WordPress Auto-updates - Stable (latest release)\n"
+
+#: functions.php:1056
+msgid "https://wordpress.org/support/forums/"
+msgstr "https://br.wordpress.org/support/"
+
+#. translators: %s: Name of the related plugin.
+#: functions.php:1018 functions.php:1028 functions.php:1038 functions.php:1048
+msgid "- %s"
+msgstr "- %s"
+
+#: functions.php:127 functions.php:814
+msgid "Auto-updates disabled"
+msgstr "Atualizações automáticas desativadas"
+
+#. translators: %s: Number of plugins.
+#: functions.php:682
+msgid "Auto-updates Disabled <span class=\"count\">(%s)</span>"
+msgid_plural "Auto-updates Disabled <span class=\"count\">(%s)</span>"
+msgstr[0] "Atualização automática desativada <span class=\"count\">(%s)</span>"
+msgstr[1] "Atualizações automáticas desativadas <span class=\"count\">(%s)</span>"
+
+#. translators: %s: Number of plugins.
+#: functions.php:672
+msgid "Auto-updates Enabled <span class=\"count\">(%s)</span>"
+msgid_plural "Auto-updates Enabled <span class=\"count\">(%s)</span>"
+msgstr[0] "Atualização automática ativada <span class=\"count\">(%s)</span>"
+msgstr[1] "Atualizações automáticas ativadas <span class=\"count\">(%s)</span>"
+
+#: functions.php:124 functions.php:813
+msgid "Auto-updates enabled"
+msgstr "Atualizações automáticas ativadas"
+
+#: functions.php:866 functions.php:879
+msgid "Enabled"
+msgstr "Ativado"
+
+#: functions.php:244 functions.php:1139
+msgid "Automatic updates"
+msgstr "Atualizações automáticas"
+
+#: functions.php:352 functions.php:379 functions.php:482 functions.php:524
+msgid "Please connect to your network admin to manage plugins automatic updates."
+msgstr "Entre em contato com a administração da sua rede para gerenciar atualizações automáticas de plugins."
+
+#: functions.php:348 functions.php:478 functions.php:520
+msgid "Sorry, you are not allowed to enable plugins automatic updates."
+msgstr "Sem permissão para ativar as atualizações automáticas de plugins."
+
+#: functions.php:55 functions.php:125 functions.php:277 functions.php:1173
+#: functions.php:1211
+msgid "Disable auto-updates"
+msgstr "Desativar atualizações automáticas"
+
+#: functions.php:54 functions.php:122 functions.php:281 functions.php:1177
+#: functions.php:1210
+msgid "Enable auto-updates"
+msgstr "Ativar atualizações automáticas"
+
+#. Author URI of the plugin
+msgid "https://wordpress.org"
+msgstr "https://br.wordpress.org"
+
+#. Author of the plugin
+#: functions.php:1057
+msgid "The WordPress Team"
+msgstr "A equipe do WordPress"
+
+#. Description of the plugin
+msgid "A feature plugin to integrate Plugins & Themes automatic updates in WordPress Core."
+msgstr "Um plugin em destaque para integrar atualizações automáticas de plugins e temas no núcleo do WordPress."
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/wp-autoupdates"
+msgstr "https://br.wordpress.org/plugins/wp-autoupdates"
+
+#. Plugin Name of the plugin
+msgid "WordPress Auto-updates"
+msgstr "WordPress Auto-updates"
