@@ -30,6 +30,20 @@ defined('ABSPATH') or die("You can't access this file. Get out of here!");
 
 class CustomizzePlugin
 {
+    protected $plugin_name = 'customizze';
+    protected $plugin_version = '0.1.0';
+
+    public function __construct()
+    {
+        $this->plugin_name = 'customizze';
+        $this->plugin_version = getenv('WP_ENV') == 'production' ? $this->plugin_version : substr(md5(uniqid()), 0, 5);
+    }
+
+    public function register()
+    {
+        add_action('admin_enqueue_scripts', array($this, 'enqueue'));
+    }
+
     public function activate()
     {
         flush_rewrite_rules();
@@ -39,10 +53,17 @@ class CustomizzePlugin
     {
         flush_rewrite_rules();
     }
+
+    public function enqueue()
+    {
+        wp_enqueue_style($this->plugin_name, plugins_url('assets/css/customizze.css', __FILE__), array(), $this->plugin_version, 'all');
+        wp_enqueue_script($this->plugin_name, plugins_url('assets/js/customizze.js', __FILE__), array(), $this->plugin_version, false);
+    }
 }
 
 if (class_exists('CustomizzePlugin')) {
     $customizzePlugin = new CustomizzePlugin();
+    $customizzePlugin->register();
 }
 
 register_activation_hook(__FILE__, array($customizzePlugin, 'activate'));
