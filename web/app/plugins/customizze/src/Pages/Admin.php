@@ -2,6 +2,7 @@
 
 namespace Cenarioweb\Customizze\Pages;
 
+use Cenarioweb\Customizze\Api\Callbacks\AdminCallbacks;
 use Cenarioweb\Customizze\Api\SettingsApi;
 
 /**
@@ -12,15 +13,15 @@ use Cenarioweb\Customizze\Api\SettingsApi;
  */
 class Admin
 {
+    protected $callbacks;
     protected $settings;
-
-    public function __construct()
-    {
-        $this->settings = new SettingsApi();
-    }
 
     public function register()
     {
+        $this->callbacks = new AdminCallbacks();
+
+        $this->settings = new SettingsApi();
+
         $this->settings->addPages($this->pages())->register();
     }
 
@@ -32,7 +33,7 @@ class Admin
                 'menu_title' => 'Customizze',
                 'capability' => 'manage_options',
                 'menu_slug' => 'customizze',
-                'callback' => function () { echo '<h1>Customizze</h1>'; },
+                'callback' => array($this->callbacks, 'dashboard'),
                 'icon_url' => 'dashicons-coffee',
                 'position' => 110,
                 'subpages' => [
@@ -40,13 +41,13 @@ class Admin
                         'page_title' => 'Personalizar tela de login',
                         'menu_title' => 'Tela de login',
                         'menu_slug' => 'customizze-login-screen',
-                        'callback' => function () { echo '<h1>Personalizar tela de login</h1>'; }
+                        'callback' => array($this->callbacks, 'loginScreen'),
                     ],
                     [
                         'page_title' => 'Tipos de posts (Custom Post Types)',
                         'menu_title' => 'Tipos de posts',
                         'menu_slug' => 'customizze-custom-post-types',
-                        'callback' => function () { echo '<h1>Tipos de posts (Custom Post Types)</h1>'; }
+                        'callback' => array($this->callbacks, 'manageCustomPostTypes'),
                     ]
                 ]
             ],
