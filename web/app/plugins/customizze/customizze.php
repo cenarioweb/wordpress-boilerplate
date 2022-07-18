@@ -18,7 +18,7 @@
  * Plugin Name:       Customizze
  * Plugin URI:        https://fvgestao.com.br
  * Description:       This plugin was developed to offer customization options for a website built with Wordpress.
- * Version:           1.0.0
+ * Version:           0.1.0
  * Author:            Carlos Eduardo
  * Author URI:        https://cenarioweb.com.br
  * License:           GPL-2.0+
@@ -32,19 +32,12 @@ class CustomizzePlugin
 {
     public function activate()
     {
-        // generate a custom post type
-        // flush rewrite rules
+        flush_rewrite_rules();
     }
 
     public function deactivate()
     {
-        // flush rewrite rules
-    }
-
-    public function uninstall()
-    {
-        // delete a custom post type
-        // delete all plugin data from database
+        flush_rewrite_rules();
     }
 }
 
