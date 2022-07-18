@@ -28,51 +28,19 @@
 
 defined('ABSPATH') or die("You can't access this file. Get out of here!");
 
-class CustomizzePlugin
-{
-    protected $plugin_name = 'customizze';
-    protected $plugin_version = '0.1.0';
+/**
+ * Currently plugin version.
+ * Start at version 0.1.0 and use SemVer - https://semver.org
+ * Rename this for your plugin and update it as you release new versions.
+ */
+define( 'CUSTOMIZZE_PLUGIN_VERSION', '0.1.0' );
 
-    public function __construct()
-    {
-        $this->plugin_name = 'customizze';
-        $this->plugin_version = getenv('WP_ENV') == 'production' ? $this->plugin_version : substr(md5(uniqid()), 0, 5);
-    }
-
-    public function register()
-    {
-        $this->load_dependencies();
-
-        add_action('admin_enqueue_scripts', array($this, 'enqueue'));
-    }
-
-    private function load_dependencies()
-    {
-        require_once plugin_dir_path(__FILE__) . '/inc/CustomizzePluginActivate.php';
-        require_once plugin_dir_path(__FILE__) . '/inc/CustomizzePluginDeactivate.php';
-    }
-
-    public function activate()
-    {
-        CustomizzePluginActivate::activate();
-    }
-
-    public function deactivate()
-    {
-        CustomizzePluginDeactivate::deactivate();
-    }
-
-    public function enqueue()
-    {
-        wp_enqueue_style($this->plugin_name, plugins_url('assets/css/customizze.css', __FILE__), array(), $this->plugin_version, 'all');
-        wp_enqueue_script($this->plugin_name, plugins_url('assets/js/customizze.js', __FILE__), array(), $this->plugin_version, false);
-    }
-}
+require plugin_dir_path( __FILE__ ) . 'classes/CustomizzePlugin.php';
 
 if (class_exists('CustomizzePlugin')) {
     $customizzePlugin = new CustomizzePlugin();
     $customizzePlugin->register();
-}
 
-register_activation_hook(__FILE__, array($customizzePlugin, 'activate'));
-register_deactivation_hook(__FILE__, array($customizzePlugin, 'deactivate'));
+    register_activation_hook(__FILE__, array($customizzePlugin, 'activate'));
+    register_deactivation_hook(__FILE__, array($customizzePlugin, 'deactivate'));
+}
